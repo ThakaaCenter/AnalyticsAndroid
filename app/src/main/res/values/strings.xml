@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Thakaa Center</string>
+    <string name="purchase_item">Purchase</string>
+    <string name="enter_your_username">Username</string>
+    <string name="your_email_com">Email</string>
+    <string name="save">Save</string>
+    <string name="title_activity_change_status">Change Status</string>
+    <string name="status">Enter Status</string>
+    <string name="quantity">Quantity:</string>
+    <string name="price">Price:</string>
+</resources>
