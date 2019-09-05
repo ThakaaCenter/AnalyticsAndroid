@@ -78,7 +78,17 @@ public class MainActivity extends AppCompatActivity {
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                EditText quantity = findViewById(R.id.quantity);
+                EditText price = findViewById(R.id.price);
+
+                int _quantity = Integer.parseInt(quantity.getText().toString());
+                double _price = Double.parseDouble(price.getText().toString());
                 //Add revenue event
+
+                //Add receipt
+
 
 
             }
