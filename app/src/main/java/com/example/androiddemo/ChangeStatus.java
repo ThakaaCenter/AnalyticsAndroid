@@ -12,7 +12,10 @@ import android.widget.EditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 //import amplitude package
+import com.amplitude.api.Amplitude;
+
 
 
 public class ChangeStatus extends AppCompatActivity {
@@ -30,6 +33,8 @@ public class ChangeStatus extends AppCompatActivity {
         /*
          * Integrate your amplitude
          */
+        Amplitude.getInstance().initialize(this, "65e0fb843b69d5e5e9a1a574ebbb3596")//change api key-
+                .enableForegroundTracking(getApplication());
 
         Button save = findViewById(R.id.save);
 
@@ -57,6 +62,7 @@ public class ChangeStatus extends AppCompatActivity {
                         }
 
                         //Add  status changed event with event property
+                        Amplitude.getInstance().logEvent("Status changed", status);
                         onBackPressed();
                     }
                 }

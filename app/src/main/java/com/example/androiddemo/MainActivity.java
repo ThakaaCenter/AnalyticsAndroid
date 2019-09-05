@@ -12,6 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+import com.amplitude.api.Amplitude;
+import com.amplitude.api.Revenue;
+
+
+
 //import amplitude package
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
           * Integrate amplitude using API_KEY
           * Add user id
          */
+        Amplitude.getInstance().initialize(this, "65e0fb843b69d5e5e9a1a574ebbb3596")//change api key-
+                .enableForegroundTracking(getApplication());
 
+        Amplitude.getInstance().setUserId("Android User Demo"); //generated user id
 
 
 
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                        //Set user properties
+                        Amplitude.getInstance().setUserProperties(user_info);
 
                     }
                 }
@@ -68,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Add event clicks events
+                Amplitude.getInstance().logEvent("click events");
 
                 Intent i = new Intent(MainActivity.this, ChangeStatus.class);
                 startActivity(i);
@@ -86,9 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 int _quantity = Integer.parseInt(quantity.getText().toString());
                 double _price = Double.parseDouble(price.getText().toString());
                 //Add revenue event
-
+                Revenue revenue = new Revenue().setProductId("com.id.productid").setQuantity(_quantity).setPrice(_price);
                 //Add receipt
 
+                revenue.setReceipt("---", "recipt sign");
+                Amplitude.getInstance().logRevenueV2(revenue);
 
 
             }

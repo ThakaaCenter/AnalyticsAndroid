@@ -3,6 +3,7 @@
     package="com.example.androiddemo">
 
     <!-- add user permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
